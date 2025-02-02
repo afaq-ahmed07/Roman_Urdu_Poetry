@@ -15,7 +15,6 @@ vocab_path = "LSTM_Poetry_Model/vocab.pkl"
 with open(vocab_path, 'rb') as f:
     vocab = pickle.load(f)
 st.write("Vocabulary loaded successfully.")
-st.write(f"Vocabulary size: {len(vocab)}")
 
 # Create reverse mapping for generating text
 idx_to_word = {idx: word for word, idx in vocab.items()}
