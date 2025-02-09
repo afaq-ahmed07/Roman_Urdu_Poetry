@@ -51,10 +51,14 @@ def generate_poetry(seed_text, next_words=20):
 st.title("Roman Urdu Poetry Generator")
 
 seed_text = st.text_input("Enter seed text:", "dil ki baat")
-next_words = st.slider("Number of words to generate:", min_value=5, max_value=50, value=20)
+next_words = st.slider("Number of words to generate:", min_value=5, max_value=500, value=20)
 
 if st.button("Generate Poetry"):
     with st.spinner("Generating poetry..."):
         generated_poetry = generate_poetry(seed_text, next_words)
     st.markdown("### Generated Poetry")
-    st.write(generated_poetry)
+    # Split text into words
+    words = generated_poetry.split()
+    # Format the text with 10 words per line
+    formatted_poetry = "\n".join(" ".join(words[i:i+10]) for i in range(0, len(words), 10))
+    st.text_area("Generated Poetry", formatted_poetry,height=200)
