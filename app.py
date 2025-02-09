@@ -2,7 +2,7 @@
 import streamlit as st
 import torch
 import pickle
-from model import LSTMPoetryModel
+from model import BiLSTMPoetryModel
 
 # Define device
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -22,7 +22,7 @@ idx_to_word = {idx: word for word, idx in vocab.items()}
 vocab_size = len(vocab)
 
 # Instantiate and load the model
-model = LSTMPoetryModel(vocab_size).to(device)
+model =BiLSTMPoetryModel(vocab_size).to(device)
 model.load_state_dict(torch.load(model_path, map_location=device))
 model.eval()
 st.write("Model loaded successfully.")
