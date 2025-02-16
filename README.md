@@ -26,5 +26,7 @@ pip install -r requirements.txt
 ```bash
 streamlit run app.py
 ```
+## Sample Output
+![Screenshot 2025-02-16 143659](https://github.com/user-attachments/assets/9f4fcc3b-3878-4a3b-9c24-c550a1fd9d9d)
 
 
